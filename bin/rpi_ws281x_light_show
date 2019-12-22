@@ -1,7 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import time
 
-from matrix.matrix import Matrix
+from rpi_ws281x_light_show.matrix.frame.pixel.color.color import Color
+from rpi_ws281x_light_show.matrix.matrix import Matrix
 
 m = Matrix()
 

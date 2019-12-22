@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='rpi_ws281x_light_show',
-      version='0.1.5',
+      version='0.1.7',
       description='Cool animations for led matrixes of the family rpi_ws281x on Raspbian',
       long_description="Cool animations for led matrixes of the family rpi_ws281x on Raspbian",
       keywords='raspberry raspbian matrix rpi_ws281x animations',
