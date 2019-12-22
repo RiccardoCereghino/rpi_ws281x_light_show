@@ -1,0 +1,6 @@
+
+.idea/
+
+venv/
+
+rpi_ws281x_light_show.egg-info/
