@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import time
 
-from matrix.frame.pixel.color.color import Color
-from matrix.matrix import Matrix
+from color import Color
+from matrix import Matrix
 
 m = Matrix()
 

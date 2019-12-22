@@ -1,6 +1,6 @@
 from neopixel import Adafruit_NeoPixel
-from matrix.frame.pixel.color.color import Color
-from matrix.frame.frame import Frame
+from color import Color
+from frame import Frame
 
 
 class Matrix:

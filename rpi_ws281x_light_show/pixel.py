@@ -1,4 +1,4 @@
-from matrix.frame.pixel.color.color import Color
+from color import Color
 
 
 class Pixel:
