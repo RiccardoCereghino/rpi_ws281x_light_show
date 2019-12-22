@@ -10,5 +10,5 @@ setup(name='rpi_ws281x_light_show',
       author_email='riccardo.cereghino@gmail.com',
       license='MIT',
       packages=find_packages(),
-      zip_safe=False
+      zip_safe=False, install_requires=['numpy']
       )
