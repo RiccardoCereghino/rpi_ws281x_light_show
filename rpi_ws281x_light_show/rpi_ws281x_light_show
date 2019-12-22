@@ -10,26 +10,44 @@ try:
     while True:
         m.fill_matrix(Color().red())
         m.render()
-        time.sleep(.05)
+        time.sleep(.5)
 
         m.fill_matrix(Color().blue())
         m.render()
-        time.sleep(.05)
+        time.sleep(.5)
 
         m.fill_matrix(Color().green())
         m.render()
-        time.sleep(.05)
+        time.sleep(.5)
 
         m.fill_matrix(Color().white())
         m.render()
-        time.sleep(.05)
+        time.sleep(.5)
 
-        for r in range(255):
-            for g in range(255):
-                for b in range(255):
-                    m.fill_matrix(Color(r, g, b))
-                    m.render()
-                    time.sleep(.05)
+        for i in range(255):
+            m.fill_matrix(Color(i, 0, 0))
+            m.render()
+            time.sleep(.05)
+
+        for i in range(255):
+            m.fill_matrix(Color(0, i, 0))
+            m.render()
+            time.sleep(.05)
+
+        for i in range(255):
+            m.fill_matrix(Color(0, 0, i))
+            m.render()
+            time.sleep(.05)
+
+        for i in range(255):
+            m.fill_matrix(Color(i, i, 0))
+            m.render()
+            time.sleep(.05)
+
+        for i in range(255):
+            m.fill_matrix(Color(i, 0, i))
+            m.render()
+            time.sleep(.05)
 
 except KeyboardInterrupt:
     m.fill_matrix()
