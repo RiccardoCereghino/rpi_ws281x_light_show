@@ -1,6 +1,6 @@
 from neopixel import Adafruit_NeoPixel
-from rpi_ws281x_light_show.matrix.frame.pixel.color.color import Color
-from rpi_ws281x_light_show.matrix.frame.frame import Frame
+from matrix.frame.pixel.color.color import Color
+from matrix.frame.frame import Frame
 
 
 class Matrix:

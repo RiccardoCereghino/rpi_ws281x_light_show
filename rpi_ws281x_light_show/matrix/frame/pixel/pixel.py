@@ -1,4 +1,4 @@
-from rpi_ws281x_light_show.matrix.frame.pixel.color.color import Color
+from matrix.frame.pixel.color.color import Color
 
 
 class Pixel:
