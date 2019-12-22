@@ -1,6 +1,7 @@
 from neopixel import Adafruit_NeoPixel
 
 from .frame.frame import Frame
+from .frame.pixel.color.color import Color
 
 
 class Matrix:
@@ -20,11 +21,12 @@ class Matrix:
         self.matrix.begin()
         self.frame = Frame(rows=16, cols=32)
 
-    def set_pixels_color(self):
-        for position, color in self.frame.status():
-            self.matrix.setPixelColor(position, color)
+    def fill_matrix(self, color: Color = Color()):
+        self.frame.fill(color)
 
     def render(self):
+        for position, color in self.frame.canvas():
+            self.matrix.setPixelColor(position, color)
         self.matrix.show()
 
     def cleanup(self):

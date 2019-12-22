@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+from matrix.frame.pixel.color.color import Color
+from rpi_ws281x_light_show.matrix.matrix import Matrix
+import time
+
+m = Matrix()
+
+try:
+    while True:
+        m.fill_matrix(Color().red())
+        m.render()
+        time.sleep(500.0)
+
+        m.fill_matrix(Color().blue())
+        m.render()
+        time.sleep(500.0)
+
+        m.fill_matrix(Color().green())
+        m.render()
+        time.sleep(500.0)
+
+        m.fill_matrix(Color().white())
+        m.render()
+        time.sleep(500.0)
+
+        for r in range(255):
+            for g in range(255):
+                for b in range(255):
+                    m.fill_matrix(Color(r, g, b))
+                    m.render()
+                    time.sleep(50 / 1000.0)
+
+except KeyboardInterrupt:
+    m.fill_matrix()
+    m.render()
+    time.sleep(100 / 1000.0)

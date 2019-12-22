@@ -11,32 +11,22 @@ class Color:
     def convert(self):
         return NeoColor(self.r, self.g, self.b, self.w)
 
-    def black(self):
-        self.r = 0
-        self.g = 0
-        self.b = 0
-        self.w = 0
+    @staticmethod
+    def black():
+        return Color(0, 0, 0, 0)
 
-    def red(self):
-        self.r = 255
-        self.g = 0
-        self.b = 0
-        self.w = 0
+    @staticmethod
+    def red():
+        return Color(255, 0, 0, 0)
 
-    def green(self):
-        self.r = 0
-        self.g = 255
-        self.b = 0
-        self.w = 0
+    @staticmethod
+    def green():
+        return Color(0, 255, 0, 0)
 
-    def blue(self):
-        self.r = 0
-        self.g = 0
-        self.b = 255
-        self.w = 0
+    @staticmethod
+    def blue():
+        return Color(0, 0, 255, 0)
 
-    def white(self):
-        self.r = 0
-        self.g = 0
-        self.b = 0
-        self.w = 255
+    @staticmethod
+    def white():
+        return Color(0, 0, 0, 255)

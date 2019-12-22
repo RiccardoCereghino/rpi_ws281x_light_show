@@ -1,4 +1,3 @@
-import numpy
 from .pixel.pixel import Pixel, Color
 
 
@@ -23,7 +22,7 @@ class Frame:
             for x in range(self.rows - 1):
                 self.update_pixel(x, y, color)
 
-    def status(self):
+    def canvas(self):
         for y in range(self.cols):
             for x in range(self.rows):
                 yield self.get_position(x, y), self.pixels[self.get_position(x, y)].color.convert()
