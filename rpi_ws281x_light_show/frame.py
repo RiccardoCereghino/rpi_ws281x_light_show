@@ -27,3 +27,10 @@ class Frame:
         for y in range(self.cols):
             for x in range(self.rows):
                 yield self.get_position(x, y), self.pixels[self.get_position(x, y)].color.convert()
+
+    def print(self):
+        for x in range(self.rows):
+            row = []
+            for y in range(self.cols):
+                row.append(self.pixels[self.get_position(x, y)].color.convert())
+            print(row)

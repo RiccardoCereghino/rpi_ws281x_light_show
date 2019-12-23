@@ -1,1 +1,3 @@
-rpi_ws281x_light_show
+Installation:
+
+sudo apt install libjpeg-dev

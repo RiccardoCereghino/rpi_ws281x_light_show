@@ -46,8 +46,9 @@ class Matrix:
                 for x, y, pixel in self.frame.fill():
                     if t[x][y]:
                         pixel.color = color
+                self.frame.print()
                 self.render()
-                time.sleep(.5)
+                time.sleep(1)
                 self.cleanup()
                 temp = t.pop(0)
                 t.append(temp)
@@ -58,4 +59,4 @@ class Matrix:
         self.matrix.show()
 
     def cleanup(self):
-        self.frame.fill()
+        self.color_wipe()

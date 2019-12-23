@@ -1,7 +1,5 @@
 from __future__ import print_function
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageDraw
+from PIL import ImageFont, Image, ImageDraw
 import numpy as np
 import os
 
