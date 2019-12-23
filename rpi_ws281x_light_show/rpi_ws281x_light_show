@@ -8,47 +8,6 @@ m = Matrix()
 
 try:
     while True:
-        m.color_wipe(Color().red())
-        m.render()
-        time.sleep(.5)
-
-        m.color_wipe(Color().blue())
-        m.render()
-        time.sleep(.5)
-
-        m.color_wipe(Color().green())
-        m.render()
-        time.sleep(.5)
-
-        m.color_wipe(Color().white())
-        m.render()
-        time.sleep(.5)
-
-        for i in range(255):
-            m.color_wipe(Color(i, 0, 0))
-            m.render()
-            time.sleep(.05)
-
-        for i in range(255):
-            m.color_wipe(Color(0, i, 0))
-            m.render()
-            time.sleep(.05)
-
-        for i in range(255):
-            m.color_wipe(Color(0, 0, i))
-            m.render()
-            time.sleep(.05)
-
-        for i in range(255):
-            m.color_wipe(Color(i, i, 0))
-            m.render()
-            time.sleep(.05)
-
-        for i in range(255):
-            m.color_wipe(Color(i, 0, i))
-            m.render()
-            time.sleep(.05)
-
         m.cleanup()
         m.scrolling_text(Color(0, 127, 0), 50, "Cookie is not a cookie", "Cookie is not a bad dog")
 
