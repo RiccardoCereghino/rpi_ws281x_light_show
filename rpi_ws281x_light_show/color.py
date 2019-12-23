@@ -17,16 +17,16 @@ class Color:
 
     @staticmethod
     def red():
-        return Color(255, 0, 0, 0)
+        return Color(127, 0, 0, 0)
 
     @staticmethod
     def green():
-        return Color(0, 255, 0, 0)
+        return Color(0, 127, 0, 0)
 
     @staticmethod
     def blue():
-        return Color(0, 0, 255, 0)
+        return Color(0, 0, 127, 0)
 
     @staticmethod
     def white():
-        return Color(0, 0, 0, 255)
+        return Color(0, 0, 0, 127)
