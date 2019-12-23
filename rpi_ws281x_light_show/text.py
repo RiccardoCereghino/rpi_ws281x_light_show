@@ -10,6 +10,7 @@ class Text:
         self.font = "{}/assets/fonts/{}".format(os.getcwd(), font)
         self.fontsize = fontsize
         self.array = []
+        self.render()
 
     def char_to_pixels(self, character):
         font = ImageFont.truetype(self.font, self.fontsize)
@@ -26,8 +27,8 @@ class Text:
     def render(self):
         for c in self.text:
             ttf_character = self.char_to_pixels(c)
-            # Converts ttf_character to workable list
 
+            # Converts ttf_character to workable list
             bool_list = np.where(ttf_character, True, False)
 
             for i in range(len(bool_list)):
