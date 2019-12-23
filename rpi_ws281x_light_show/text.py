@@ -7,7 +7,7 @@ import os
 class Text:
     def __init__(self, text, font="dotty.ttf", fontsize=20):
         self.text = text
-        self.font = "{}/assets/fonts/{}".format(os.getcwd(), font)
+        self.font = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
         self.fontsize = fontsize
         self.array = []
         self.render()
