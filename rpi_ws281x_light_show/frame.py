@@ -18,10 +18,10 @@ class Frame:
         self.pixels[self.get_position(x, y)].color.b = color.b
         self.pixels[self.get_position(x, y)].color.w = color.w
 
-    def fill(self, color: Color = Color()):
-        for y in range(self.cols - 1):
-            for x in range(self.rows - 1):
-                self.update_pixel(x, y, color)
+    def fill(self):
+        for y in range(self.cols):
+            for x in range(self.rows):
+                yield x, y, self.pixels[self.get_position(x, y)]
 
     def canvas(self):
         for y in range(self.cols):
