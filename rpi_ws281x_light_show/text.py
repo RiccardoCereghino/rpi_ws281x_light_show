@@ -8,7 +8,7 @@ class Text:
         self.text = text
         self.font = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
         self.fontsize = fontsize
-        self.array = [[], [], [], [], [], [], [], []]
+        self.array = []
         self.render()
 
     def char_to_pixels(self, character):
@@ -30,7 +30,14 @@ class Text:
             # Converts ttf_character to workable list
             bool_list = np.where(ttf_character, True, False)
 
-            self.array[0] += [False] * len(bool_list[0])
+            for i in range(8 - len(bool_list) - 1):
+                if len(self.array) == 8:
+                    self.array[i] += [False] * len(bool_list[0])
+                else:
+                    self.array.append([False] * len(bool_list[0]))
 
-            for i in range(len(bool_list)):
-                self.array[i] += bool_list[i]
+            for i in range(8 - len(bool_list), len(bool_list) - 1):
+                if len(self.array) == 8:
+                    self.array[i] += bool_list[i]
+                else:
+                    self.array.append(bool_list[i])
