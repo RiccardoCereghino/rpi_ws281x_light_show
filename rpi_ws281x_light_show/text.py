@@ -34,9 +34,9 @@ class Text:
         for i in range(len(bool_list)):
             j = i + offset
             if len(self.array) == 8:
-                self.array[j] += bool_list[j]
+                self.array[j] += bool_list[i]
             else:
-                self.array.append(bool_list[j])
+                self.array.append(bool_list[i])
 
     def render(self):
         for c in self.text:
