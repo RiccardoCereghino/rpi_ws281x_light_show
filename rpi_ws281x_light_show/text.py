@@ -1,15 +1,14 @@
 from __future__ import print_function
 from PIL import ImageFont, Image, ImageDraw
 import numpy as np
-import os
 
 
 class Text:
-    def __init__(self, text, font="dotty.ttf", fontsize=20):
+    def __init__(self, text, font="dotty.ttf", fontsize=10):
         self.text = text
         self.font = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
         self.fontsize = fontsize
-        self.array = []
+        self.array = [[], [], [], [], [], [], [], []]
         self.render()
 
     def char_to_pixels(self, character):
@@ -31,5 +30,7 @@ class Text:
             # Converts ttf_character to workable list
             bool_list = np.where(ttf_character, True, False)
 
+            self.array[0] += [False] * len(bool_list[0])
+
             for i in range(len(bool_list)):
-                self.array.append(bool_list[i])
+                self.array[i] += bool_list[i]

@@ -37,21 +37,20 @@ class Matrix:
                     pixel.color = color
 
     def scrolling_text(self, color: Color = Color(), repetitions=1, row_1="", row_2=""):
-        t_1 = Text(row_1)
-        t_2 = Text(row_2)
-        t = t_1.array + t_2.array
+        t_1 = Text(row_1).array
+        t_2 = Text(row_2).array
+        t = t_1 + t_2
 
         for rep in range(repetitions):
             for i in range(len(t) - 1):
                 for x, y, pixel in self.frame.fill():
-                    if t[x][y]:
+                    if t[y][x]:
                         pixel.color = color
                 self.frame.print()
                 self.render()
+                t[i].append(t[i].pop(0))
                 time.sleep(1)
                 self.cleanup()
-                temp = t.pop(0)
-                t.append(temp)
 
     def render(self):
         for position, color in self.frame.canvas():
