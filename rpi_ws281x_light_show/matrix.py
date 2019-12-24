@@ -42,7 +42,7 @@ class Matrix:
         t = t_1 + t_2
 
         for rep in range(repetitions):
-            for i in range(len(t) - 1):
+            for i in range(len(t)):
                 for x, y, pixel in self.frame.fill():
                     if t[y][x]:
                         pixel.color = color

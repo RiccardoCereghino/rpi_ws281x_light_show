@@ -1,50 +1,28 @@
-from __future__ import print_function
-from PIL import ImageFont, Image, ImageDraw
-import numpy as np
+from letter import Letter
 
 
 class Text:
-    def __init__(self, text, font="dotty.ttf", fontsize=10):
+    def __init__(self, text, font="dejavu/DejaVuSans.ttf", fontsize=10):
         self.text = text
-        self.font = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+        self.font = "/usr/share/fonts/truetype/{}".format(font)
         self.fontsize = fontsize
         self.array = []
-        self.render()
+        self.letters = []
+        self.render_letters()
+        self.fill_array()
 
-    def char_to_pixels(self, character):
-        font = ImageFont.truetype(self.font, self.fontsize)
-        w, h = font.getsize(character)
-        h *= 2
-        image = Image.new('L', (w, h), 1)
-        draw = ImageDraw.Draw(image)
-        draw.text((0, 0), character, font=font)
-        arr = np.asarray(image)
-        arr = np.where(arr, 0, 1)
-        arr = arr[(arr != 0).any(axis=1)]
-        return arr
+    def render_letters(self):
+        for char in self.text:
+            self.letters.append(Letter(char, self.font))
 
-    def fill_array(self, bool_list):
-        offset = 8 - len(bool_list)
-        for i in range(offset):
-            if len(self.array) == 8:
-                self.array[i] += [False] * len(bool_list[0])
-            else:
-                self.array.append([False] * len(bool_list[0]))
+    def fill_array(self):
+        for letter in self.letters:
+            for i in range(len(letter.array)):
+                if len(self.array) == 8:
+                    self.array[i] += letter.array[i]
+                else:
+                    self.array.append(letter.array[i])
 
-        for i in range(len(bool_list)):
-            j = i + offset
-            if len(self.array) == 8:
-                self.array[j] += bool_list[i]
-            else:
-                self.array.append(bool_list[i])
 
-    def render(self):
-        for c in self.text:
-            ttf_character = self.char_to_pixels(c)
-
-            # Converts ttf_character to workable list
-            bool_list = np.where(ttf_character, True, False)
-
-            self.fill_array(bool_list)
 
 
