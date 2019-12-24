@@ -23,6 +23,21 @@ class Text:
         arr = arr[(arr != 0).any(axis=1)]
         return arr
 
+    def fill_array(self, bool_list):
+        offset = 8 - len(bool_list)
+        for i in range(offset):
+            if len(self.array) == 8:
+                self.array[i] += [False] * len(bool_list[0])
+            else:
+                self.array.append([False] * len(bool_list[0]))
+
+        for i in range(len(bool_list)):
+            j = i + offset
+            if len(self.array) == 8:
+                self.array[j] += bool_list[j]
+            else:
+                self.array.append(bool_list[j])
+
     def render(self):
         for c in self.text:
             ttf_character = self.char_to_pixels(c)
@@ -30,14 +45,6 @@ class Text:
             # Converts ttf_character to workable list
             bool_list = np.where(ttf_character, True, False)
 
-            for i in range(8 - len(bool_list) - 1):
-                if len(self.array) == 8:
-                    self.array[i] += [False] * len(bool_list[0])
-                else:
-                    self.array.append([False] * len(bool_list[0]))
+            self.fill_array(bool_list)
 
-            for i in range(8 - len(bool_list), len(bool_list) - 1):
-                if len(self.array) == 8:
-                    self.array[i] += bool_list[i]
-                else:
-                    self.array.append(bool_list[i])
+
