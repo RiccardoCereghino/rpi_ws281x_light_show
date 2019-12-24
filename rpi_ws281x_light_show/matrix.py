@@ -8,7 +8,7 @@ from text import Text
 class Matrix:
     def __init__(self):
         # LED strip configuration:
-        self.led_count = 512  # Number of LED pixels.
+        self.led_count = 256  # Number of LED pixels.
         self.led_pin = 18  # GPIO pin connected to the pixels (18 uses PWM!).
         self.led_freq_hz = 800000  # LED signal frequency in hertz (usually 800khz)
         self.led_dma = 10  # DMA channel to use for generating signal (try 10)
@@ -20,16 +20,15 @@ class Matrix:
                                         self.led_brightness, self.led_channel)
 
         self.matrix.begin()
-        self.frame = Frame(rows=16, cols=32)
+        self.frame = Frame(rows=8, cols=32)
 
     def color_wipe(self, color: Color = Color()):
         for x, y, pixel in self.frame.fill():
             pixel.color = color
 
-    def display_text(self, color: Color = Color(), row_1="", row_2=""):
-        t_1 = Text(row_1)
-        t_2 = Text(row_2)
-        t = t_1.array + t_2.array
+    def display_text(self, color: Color = Color(), row_1=""):
+        t = Text(row_1)
+        t = t.array
 
         for i in range(self.frame.cols()):
             for x, y, pixel in self.frame.fill():
@@ -37,16 +36,14 @@ class Matrix:
                     pixel.color = color
 
     def scrolling_text(self, color: Color = Color(), repetitions=1, row_1="", row_2=""):
-        t_1 = Text(row_1).array
-        t_2 = Text(row_2).array
-        t = t_1 + t_2
+        t = Text(row_1)
+        t = t.array
 
         for rep in range(repetitions):
             for i in range(len(t)):
                 for x, y, pixel in self.frame.fill():
                     if t[y][x]:
                         pixel.color = color
-                self.frame.print()
                 self.render()
                 t[i].append(t[i].pop(0))
                 time.sleep(1)

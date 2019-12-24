@@ -9,7 +9,8 @@ m = Matrix()
 try:
     while True:
         m.cleanup()
-        m.scrolling_text(Color(0, 127, 0), 50, "Cookie is not a cookie", "Cookie is not a bad dog")
+        m.render()
+        m.scrolling_text(Color(0, 127, 0), 50, "Cookie is not a cookie and is not a bad dog")
 
 except KeyboardInterrupt:
     m.color_wipe()
