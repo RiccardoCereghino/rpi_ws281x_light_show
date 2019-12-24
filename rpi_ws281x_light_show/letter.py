@@ -34,9 +34,9 @@ class Letter:
         for i in range(len(bool_list)):
             j = i + offset
             if len(self.array) == 8:
-                self.array[j] += bool_list[i].tolist()
+                self.array[j] += bool_list[i]
             else:
-                self.array.append(bool_list[i]).tolist()
+                self.array.append(bool_list[i])
 
     def render(self):
         for c in self.char:
@@ -44,6 +44,7 @@ class Letter:
 
             # Converts ttf_character to workable list
             bool_list = np.where(ttf_character, True, False)
+            bool_list = bool_list.tolist()
 
             self.fill_array(bool_list)
 
